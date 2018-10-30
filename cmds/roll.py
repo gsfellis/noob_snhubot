@@ -16,7 +16,7 @@ def execute(command, user):
     response = "That roll is not valid. Try `<@{}> roll help`".format(bot_id)
 
     if len(roll) > 1:
-        roll = command.split()[1]
+        roll = roll[1]
         
         if roll.lower().startswith("help"):
             # PEP8 style for long strings
