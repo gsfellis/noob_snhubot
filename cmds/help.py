@@ -17,7 +17,7 @@ def execute(command, user):
 
     cmd_list = ""
     for command in commands:
-        cmd_list += "  - `{}`\n".format(command)
+        cmd_list += "- `{}`\n".format(command)
 
     attachment = json.dumps([
         {
