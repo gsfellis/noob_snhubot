@@ -21,7 +21,8 @@ def execute(command, user):
 
     attachment = json.dumps([
         {
-            "text": "So you need a little help? Below you can find examples and a list of commands I know how to execute.\n",            
+            "pretext": "So you need a little help?",
+            "text": f"Commands are issued in the general format: `<@{bot_id}> <command> [options]`. Check individual commands for further details.\n\nBelow you can find examples and a list of commands I know how to execute.\n",            
             "thumb_url": "http://st.depositphotos.com/1431107/4033/v/950/depositphotos_40334707-stock-illustration-vector-help-sign.jpg",           
             "fields":[  
                 {
