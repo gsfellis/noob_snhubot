@@ -1,3 +1,4 @@
+import json
 
 command = "help"
 public = True
@@ -10,11 +11,33 @@ def execute(command, user):
 
     commands = list(COMMANDS.values())
     commands.sort()
+    
+    response = None
+    #response = f'You can issue me a `command` using the format: `<@{bot_id}> <command> [options]`. Follow `command` prompts and help screens to determine `options`.\nHere are all the commands I know how to execute:\n'
 
-    attachment = None    
-    response = f'You can issue me a `command` using the format: `<@{bot_id}> <command> [options]`. Follow `command` prompts and help screens to determine `options`.\nHere are all the commands I know how to execute:\n'
-
+    cmd_list = ""
     for command in commands:
-        response += "  - `{}`\n".format(command)
+        cmd_list += "  - `{}`\n".format(command)
+
+    attachment = json.dumps([
+        {
+            "text": "So you need a little help? Below you can find examples and a list of commands I know how to execute.",            
+            "thumb_url": "http://st.depositphotos.com/1431107/4033/v/950/depositphotos_40334707-stock-illustration-vector-help-sign.jpg",           
+            "fields":[  
+                {
+                    "title":"Commands",
+                    "value":f"{cmd_list}",
+                    "short":"true"
+                },
+                {
+                    "title":"Examples",
+                    "value":f"<@{bot_id} help\n<@{bot_id} channels\n",
+                    "short":"true"
+                }
+            ],
+			"color": "warning"
+        }
+    ])
+
 
     return response, attachment
