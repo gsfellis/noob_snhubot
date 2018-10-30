@@ -12,7 +12,7 @@ def execute(command, user):
     commands.sort()
 
     attachment = None    
-    response = f'You can issue me a command using the format: `<@{bot_id}> <_command_> [_options_]`.\nHere are all the commands I know how to execute:\n'
+    response = f'You can issue me a command using the format: `<@{bot_id}> <command> [options]`.\nHere are all the commands I know how to execute:\n'
 
     for command in commands:
         response += "  - `{}`\n".format(command)
