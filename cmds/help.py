@@ -31,7 +31,7 @@ def execute(command, user):
                 },
                 {
                     "title":"Examples",
-                    "value":f"<@{bot_id} help\n<@{bot_id} channels\n",
+                    "value":f"<@{bot_id}> help\n<@{bot_id}> channels\n<@{bot_id}> catalog it140",
                     "short":"true"
                 }
             ],
