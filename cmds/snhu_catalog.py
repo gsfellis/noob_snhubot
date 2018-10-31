@@ -1,6 +1,6 @@
 import re
 import json
-from noob_snhubot import DB_CONFIG
+from noob_snhubot import DB_CONFIG, slack_client
 from BotHelper import Catalog, Course
 from BotHelper.HashTable import HashTable
 
@@ -11,9 +11,7 @@ disabled = False
 # Check if we're running with a database connection
 if DB_CONFIG:
     # perform imports
-    from noob_snhubot import mongo, slack_client
-
-    bot_id = slack_client.api_call("auth.test")["user_id"]
+    from noob_snhubot import mongo
     
     # change to catalog/subjects context
     mongo.use_db('catalog')
@@ -33,6 +31,8 @@ else:
     disabled = True
 
 def execute(command, user):
+    bot_id = slack_client.api_call("auth.test")["user_id"]
+    
     default_response = "Sorry, I don't understand. Try `<@{}> catalog help` for more details.".format(bot_id)
     response = None
     attachment = None
