@@ -1,8 +1,8 @@
 # Noob SNHUbot
 
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md) [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](LICENSE) [![GitHub version](https://badge.fury.io/gh/gsfellis%2Fnoob_snhubot.svg)](https://badge.fury.io/gh/gsfellis%2Fnoob_snhubot)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md) [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](LICENSE) [![GitHub version](https://badge.fury.io/gh/gsfellis%2Fnoob_snhubot.svg)](/releases/latest)
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/gluten-free.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
+![Made with Python](https://forthebadge.com/images/badges/made-with-python.svg) ![Gluten Free](https://forthebadge.com/images/badges/gluten-free.svg) ![Sometimes works](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)
 
 A simple Slack bot written in Python for the [snhu_coders](https://snhu_coders.slack.com) Slack workgroup. It's a fun side project for me and I welcome anyone interested to participate. Contact me on Slack or open an issue if you'd like to see an enhancement to the bot.
 
