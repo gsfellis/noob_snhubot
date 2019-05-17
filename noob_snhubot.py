@@ -17,7 +17,7 @@ import cmds
 try:
     with open("config.yml", 'r') as f:
         print(f"UTC: {datetime.datetime.utcnow().timestamp()} - Reading configuration in config.yml")
-        CONFIG = yaml.load(f.read())
+        CONFIG = yaml.load(f.read(), Loader=yaml.BaseLoader)
         BOT_CONFIG = CONFIG['slackbot'] if 'slackbot' in CONFIG.keys() else None
         DB_CONFIG = CONFIG['mongo'] if 'mongo' in CONFIG.keys() else None
 except FileNotFoundError as err:
