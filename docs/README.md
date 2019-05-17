@@ -1,6 +1,6 @@
 # Noob SNHUbot
 
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md) [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](LICENSE) [![GitHub version](https://badge.fury.io/gh/gsfellis%2Fnoob_snhubot.svg)](/releases/latest)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md) [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](LICENSE) ![GitHub version](https://badge.fury.io/gh/gsfellis%2Fnoob_snhubot.svg)
 
 ![Made with Python](https://forthebadge.com/images/badges/made-with-python.svg) ![Gluten Free](https://forthebadge.com/images/badges/gluten-free.svg) ![Sometimes works](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)
 
