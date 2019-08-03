@@ -1,15 +1,17 @@
-import threading
 import sched
+import threading
 import time
-import datetime
+from datetime import datetime, timedelta
 
+import pytz
 from croniter import croniter
+
 from .Output import output
 
 
 class Scheduler:
 
-    def __init__(self, config=None):
+    def __init__(self, config=None, timezone='US/Eastern'):
         """
         Maintains the scheduled tasks for the bot
 
@@ -18,6 +20,7 @@ class Scheduler:
         """
         self.CONFIG = config
         self.schedule = {}
+        self.tz = pytz.timezone(timezone)
 
     def get_num_of_tasks(self):
         """
@@ -46,7 +49,7 @@ class Scheduler:
         schedule = list(self.schedule.items())
 
         for k, v in schedule:
-            if datetime.datetime.now().timestamp() >= v['time']:
+            if datetime.now().timestamp() >= v['time']:
 
                 if not v['thread'].is_alive():
                     self.schedule.pop(k, None)
@@ -91,7 +94,7 @@ class Scheduler:
                 (i.e. The "roll" command takes a valid die roll as an argument. "1d20" could be passed here
 
         """
-        s = sched.scheduler(time.time, datetime.timedelta)
+        s = sched.scheduler(time.time, timedelta)
 
         # Add the task to the scheduler
         task = s.enterabs(
@@ -130,16 +133,16 @@ class Scheduler:
                 if cmd in bot_commands:
                     cmd_data = self.CONFIG.get(cmd)
 
-                    cmd_time = croniter(cmd_data.get("schedule"))
-                    next_run = cmd_time.get_next()
-                    now = datetime.datetime.now()
+                    local = self.tz.localize(datetime.now())
+
+                    cmd_time = croniter(cmd_data.get("schedule"), local)
+                    next_run = self.tz.localize(datetime.fromtimestamp(cmd_time.get_next()))
 
                     # if within the schedule_delay time period
-                    if datetime.timedelta(
-                            seconds=schedule_delay) >= datetime.datetime.fromtimestamp(next_run) - now:
+                    if timedelta(seconds=schedule_delay) >= next_run - local:
                         # if not already scheduled
-                        if not self.has_task(cmd, next_run):
-                            self.schedule_cmd(cmd, cmd_data.get("channel"), next_run, schedule_function,
+                        if not self.has_task(cmd, next_run.timestamp()):
+                            self.schedule_cmd(cmd, cmd_data.get("channel"), next_run.timestamp(), schedule_function,
                                               bot_id, args=cmd_data.get("args"))
                 else:
                     output("No command found for: {}".format(cmd))

@@ -126,11 +126,12 @@ when launching the application (see next section).
 Sample `app.yml`:
 ```yaml
 bot_name:       "Noob SNHUbot"
-mail_user:     "example@example.com"
-mail_pass:     "SUPER_SECRET_PASSWORD"
+mail_user:      "example@example.com"
+mail_pass:      "SUPER_SECRET_PASSWORD"
 smtp_address:   "smtp.gmail.com"
 smtp_port:      465
 admin_emails:   ['example@example.com']
+timezone:       'US/Eastern'
 ```
 
 Sample `slack.yml`:
